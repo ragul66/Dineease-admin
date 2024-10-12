@@ -2,14 +2,14 @@ import { connectToDb } from "@/utils/database";
 import User from "@/models/user";
 
 export const POST = async (req) => {
-  const { email, username, password, ph_no } = await req.json();
+  const { username, email, password, ph_no } = await req.json();
 
   await connectToDb();
 
   try {
     const newUser = new User({
-      email,
       username,
+      email,
       password,
       ph_no,
     });
@@ -17,6 +17,7 @@ export const POST = async (req) => {
 
     return new Response(JSON.stringify(newUser), { status: 201 });
   } catch (error) {
+    console.error("Error creating user:", error); // This will help in debugging
     return new Response("Failed to create a user", { status: 500 });
   }
 };

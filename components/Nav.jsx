@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const router = useRouter(); // To access the current route
 
@@ -79,8 +79,8 @@ const AdminLayout = ({ children }) => {
         <div className="flex-1 flex flex-col">
           {/* Navbar */}
           <nav className="bg-orange-300 text-black w-full p-4 flex justify-between items-center">
-            <div className="text-4xl font-bold">Dineease</div>
-            <div className="flex justify-center items-center ">Dine NOW!!</div>
+            <div className="text-3xl font-bold">Dineease</div>
+            <div className="justify-center items-center block">Dine NOW!!</div>
             <div className="hidden md:flex space-x-6">
               <Link href="/userlogin" className={isActive("/userlogin")}>
                 Dashboard
@@ -136,7 +136,7 @@ const AdminLayout = ({ children }) => {
           </nav>
 
           {/* Page Content */}
-          <userlogin />
+          {/* <userlogin /> */}
         </div>
       </div>
     </>
